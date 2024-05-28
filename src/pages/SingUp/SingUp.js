@@ -6,6 +6,7 @@ export default function SingUp(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [samePassword, setSamePassword] = useState('');
+    const [name, setName] = useState('');
 
     function handleEmail(e){
         setEmail(e.target.value);
@@ -23,6 +24,10 @@ export default function SingUp(){
         }
     }
 
+    function handleName(e){
+        setName(e.target.value);
+    }
+
     return(
         <div className="contianer-center">
             <div className="login">
@@ -31,6 +36,7 @@ export default function SingUp(){
                 </div>
                 <form>
                     <h1>Register</h1>
+                    <input type="text" placeholder="Name" value={name} onChange={handleName}/>
                     <input type="text" placeholder="Type your email" value={email} onChange={handleEmail}/>
                     <input type="password" placeholder="***********" value={password} onChange={handlePassword}/>
                     <input type="password" placeholder="***********" value={samePassword} onChange={handleSamePassword}/>

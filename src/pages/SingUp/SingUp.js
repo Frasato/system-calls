@@ -5,7 +5,6 @@ export default function SingUp(){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [samePassword, setSamePassword] = useState('');
     const [name, setName] = useState('');
 
     function handleEmail(e){
@@ -14,14 +13,6 @@ export default function SingUp(){
 
     function handlePassword(e){
         setPassword(e.target.value);
-    }
-
-    function handleSamePassword(e){
-        if(password === e.target.value){
-            setSamePassword(e.target.value);
-        }else{
-            alert('The password are not the same!');
-        }
     }
 
     function handleName(e){
@@ -36,10 +27,9 @@ export default function SingUp(){
                 </div>
                 <form>
                     <h1>Register</h1>
-                    <input type="text" placeholder="Name" value={name} onChange={handleName}/>
-                    <input type="text" placeholder="Type your email" value={email} onChange={handleEmail}/>
-                    <input type="password" placeholder="***********" value={password} onChange={handlePassword}/>
-                    <input type="password" placeholder="***********" value={samePassword} onChange={handleSamePassword}/>
+                    <input type="text" placeholder="Name" value={name} onChange={handleName} required/>
+                    <input type="text" placeholder="Type your email" value={email} onChange={handleEmail} required/>
+                    <input type="password" placeholder="***********" value={password} onChange={handlePassword} required/>
                     <input type="submit" value="Login"/>
                     <Link to="/">Already have a acount?</Link>
                 </form>

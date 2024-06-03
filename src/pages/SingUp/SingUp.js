@@ -19,13 +19,21 @@ export default function SingUp(){
         setName(e.target.value);
     }
 
+    function handleSubmit(e){
+        e.preventDefault();
+
+        if(name !== '' && email !== '' && password !==''){
+            
+        }
+    }
+
     return(
         <div className="contianer-center">
             <div className="login">
                 <div className="logo-area">
                     <img src="#" alt="logo"/>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h1>Register</h1>
                     <input type="text" placeholder="Name" value={name} onChange={handleName} required/>
                     <input type="text" placeholder="Type your email" value={email} onChange={handleEmail} required/>

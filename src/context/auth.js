@@ -10,12 +10,17 @@ export default function AuthProvider({ children }){
 
     }
 
+    function singUp(email, password, name){
+
+    }
+
     return(
         <AuthContext.Provider value={
             {
                 signed: !!user,
                 user,
                 singIn,
+                singUp,
             }
         }>
             {children}

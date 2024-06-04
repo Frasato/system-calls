@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/auth";
 
 export default function SingUp(){
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+
+    const {singUp} = useContext(AuthContext);
 
     function handleEmail(e){
         setEmail(e.target.value);
@@ -23,7 +26,7 @@ export default function SingUp(){
         e.preventDefault();
 
         if(name !== '' && email !== '' && password !==''){
-            
+            singUp(email, password, name);
         }
     }
 

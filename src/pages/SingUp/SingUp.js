@@ -8,7 +8,7 @@ export default function SingUp(){
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
 
-    const {singUp} = useContext(AuthContext);
+    const {singUp, loadingAuth} = useContext(AuthContext);
 
     function handleEmail(e){
         setEmail(e.target.value);
@@ -22,11 +22,11 @@ export default function SingUp(){
         setName(e.target.value);
     }
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
 
         if(name !== '' && email !== '' && password !==''){
-            singUp(email, password, name);
+            await singUp(email, password, name);
         }
     }
 
@@ -41,7 +41,9 @@ export default function SingUp(){
                     <input type="text" placeholder="Name" value={name} onChange={handleName} required/>
                     <input type="text" placeholder="Type your email" value={email} onChange={handleEmail} required/>
                     <input type="password" placeholder="***********" value={password} onChange={handlePassword} required/>
-                    <input type="submit" value="Login"/>
+                    <button type="submit">
+                        {loadingAuth ? 'Loading...' : 'Create Acount!'}
+                    </button>
                     <Link to="/">Already have a acount?</Link>
                 </form>
             </div>
